@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Storstok</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/site_media/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        background-image:url('/site_media/pics/GridPaper.jpg');
+      }
+	  
+	  
+	  /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body data-spy="scroll" data-target="#pills">
+
+    <div class="container-narrow">
+
+      <div class="masthead" id="pills">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="#Contact" data-toggle="modal">Contact Us!</a></li>
+          <!-- Modal -->
+<div id="Contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body">
+    <p>Send your questions to palakpatel1@gmail.com </p>
+  </div>
+</div>
+        </ul>
+        <h3 class="muted">Storstok</h3>
+        <hr>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Join Storstok!</h1>
+        <p class="lead"> Storstok connects vendors to businesses and businesses to vendors. Buy and sell inventory easily with cash or credit.</p>
+<!---Registration Modal -->
+<div id="registerModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h2 id="message">Sign Up:</h2>
+  </div>
+  <div class="modal-body">
+    <div id="registerModalerror" style="display: none;"></div>
+    <form action="/sign_up/" method="post" class="form-horizontal well well-small form-search" id="registerModalform">
+    {% csrf_token %}
+        <div class="control-group">
+            <label class="control-label">Name:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-info-sign"></i></span>
+                    <input type="text" name="full_name" placeholder="Enter your name." class="search-query">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" id="email">Email:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input type="text" name="email" placeholder="Enter your email." class="search-query" id="UserEmail" >
+                </div>
+            </div>
+        </div>
+         <div class="control-group">
+            <label class="control-label" >I am a vendor.</label>
+            <input type="checkbox" name="vendor" value="True" class="search-query" id="chkSelect1">
+        </div>
+        <div class="control-group">
+            <label class="control-label" >I am a buyer.</label>
+            <input type="checkbox" name="buyer" value="True" class="search-query" id="chkSelect2">
+        </div>
+        <div class="form-actions" style="margin-bottom: 0px; padding-bottom: 0px;">
+            <input type="submit" class="btn btn-primary search-query" name="register" value="Register!" id="registerModalsubmit">
+        </div>
+    </form>
+</div>
+</div>
+<div class="row">
+<div class="span1 offset3">
+<a role="button" data-toggle="modal" href="#registerModal" class="btn">Register</a>
+</div>
+</div>
+<!---Registration modal ends here -->
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing" id="Buyers">
+        <div class="span6">
+		<img src="/site_media/pics/storstok1.png" alt="" width="75%" height="75%" >
+        </div>
+        <!--
+          <h4>Vendors</h4>
+          <p>Sell inventory to your customers online.</p>
+
+          <p>Receive payments in cash or credit.</p>
+          
+          <p>Perform sales analytics.</p?>
+          
+          
+        </div>
+			-->
+        <div class="span6">
+          <h4>Buyers</h4>
+          <p>Search for vendors.</p>
+
+          <p>Restock inventory with easy online orders. Pay in cash or credit.</p>
+          
+          <p>Maintain your order invoices.</p>
+        </div>
+      </div>
+
+      <hr>
+
+		<div class="row-fluid marketing" id="Vendors">
+		<div class="span6">
+		
+          <h4>Vendors</h4>
+          <p>Sell inventory to your customers online.</p>
+
+          <p>Receive payments in cash or credit.</p>
+          
+          <p>Perform sales analytics.</p?>
+          
+        </div>
+
+      <div class="span6">
+		<img src="/site_media/pics/chart.png" alt="" width="75%" height="75%" >
+        </div>
+      </div>
+      
+      <div class="footer">
+        <p>&copy; Storstok 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="../assets/js/jquery.js"></script> -->
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/site_media/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="/site_media/bootstrap/js/bootstrap.js"></script>-->
+    <script>
+    $(document).ready(function() { 
+ 
+    $('#registerModalsubmit').click(function() {  
+ 
+        $(".error").hide();
+        var hasError = false;
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 
+        var emailaddressVal = $("#UserEmail").val();
+        if(emailaddressVal == '') {
+            $("#email").replaceWith('<span class="error" id="email">Please enter your email address.</span>');
+            hasError = true;
+        }
+ 
+        else if(!emailReg.test(emailaddressVal)) {
+            $("#email").replaceWith('<span class="error" id="email">Enter a valid email address.</span>');
+            hasError = true;
+        }
+ 
+        if(hasError == true) { return false; }
+        
+        var isChecked1 = $('#chkSelect1').is(':checked');
+        
+        var isChecked2 = $('#chkSelect2').is(':checked');
+        
+        if(isChecked1 == isChecked2) {
+        $("#message").replaceWith('<h2 id="message">Please check a box </h2>');
+        hasError = true; 
+        }
+        
+        if(hasError == true) { return false; }
+        
+    });
+});
+	</script>
+	
+
+  </body>
+</html>

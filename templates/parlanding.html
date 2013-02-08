@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Storstok</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/site_media/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    	<link href="/site_media/Parallax/css/reset.css"  rel="stylesheet" type="text/css" />
+	<link href="/site_media/Parallax/css/chrome.css" rel="stylesheet" type="text/css" />
+	<link href="css/demo1.css" rel="stylesheet" type="text/css" />
+
+	<!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="/site_media/Parallax/js/side-nav.js"              ></script>
+	<script type="text/javascript" src="/site_media/Parallax/js/backgrounds.js"           ></script>
+	<script type="text/javascript" src="/site_media/Parallax/js/kinetics.js"              ></script>
+
+	<!-- parallax.js really screws with the DOM, so make sure it's included last so other things don't notice :) -->
+	<script type="text/javascript" src="/site_media/Parallax/js/parallax.js"           ></script>
+  </head>
+
+  <body>
+	<!-- this is to make the page's vertical scrollbar appear the correct height -->
+	<div id="mock-scroller"></div>
+	<ul id="nav"></ul>
+	
+<div id="content">
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">Storstok</h3>
+      </div>
+
+      <hr>
+      
+<section id="story-header">
+<div class="story">
+      <div class="jumbotron">
+        <h1>Join Storstok!</h1>
+        <p class="lead"> Storstok connects vendors to businesses and businesses to vendors. Buy and sell inventory easily with cash or credit.</p>
+<!---Registration Modal -->
+<div id="registerModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h2>Sign Up:</h2>
+  </div>
+  <div class="modal-body">
+    <div id="registerModalerror" style="display: none;"></div>
+    <form action="/sign_up/" method="post" class="form-horizontal well well-small form-search" id="registerModalform">
+    {% csrf_token %}
+        <div class="control-group">
+            <label class="control-label">Name:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-info-sign"></i></span>
+                    <input type="text" name="full_name" placeholder="Enter your name." class="search-query">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >Email:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input type="text" name="email" placeholder="Enter your email." class="search-query">
+                </div>
+            </div>
+        </div>
+        <div class="form-actions" style="margin-bottom: 0px; padding-bottom: 0px;">
+            <input type="submit" class="btn btn-primary search-query" name="register" value="Register!" id="registerModalsubmit">
+        </div>
+    </form>
+</div>
+</div>
+<div class="row">
+<div class="span1 offset3">
+<a role="button" data-toggle="modal" href="#registerModal" class="btn">Register</a>
+</div>
+</div>
+<!---Registration modal ends here -->
+      </div>
+</div>
+</section >
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Storstok 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+</div> <!-- /content -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="../assets/js/jquery.js"></script> -->
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/site_media/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="/site_media/bootstrap/js/bootstrap.js"></script>-->
+
+  </body>
+</html>

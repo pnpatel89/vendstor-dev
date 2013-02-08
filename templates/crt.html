@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <table class="table table-hover">
+    <div class="row-fluid">
+	<div class="span12">
+	<thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Button</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}</td>
+            <td><form action="/remove_cart/" class="form-horizontal" method="post">
+		    {% csrf_token %}
+            <input name="key" type="hidden" value="{{item.id}}"/>
+            <input type="submit" value="Remove" class="btn"/></form></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+{% endblock %}
