@@ -11,11 +11,12 @@ import json
 def sign_up(request):
 	if request.method == 'POST':
 		name = request.POST.get('full_name')
+		biz_name = request.POST.get('biz_name')
 		email = request.POST.get('email')
 		if Prelim.objects.filter(email=email).exists():
 			csrfContext = RequestContext(request)
 			return render_to_response('signsuccess.html', csrfContext)
-		guest = Prelim(name=name,email=email)
+		guest = Prelim(name=name,email=email,bizname=biz_name)
 		guest.save()
 	csrfContext = RequestContext(request)
 	return render_to_response('signsuccess.html', csrfContext)
