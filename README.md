@@ -1,1 +1,1 @@
-test
+'Vendstor-dev'
