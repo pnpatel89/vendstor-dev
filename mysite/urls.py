@@ -30,5 +30,6 @@ urlpatterns = patterns('',
 	(r'^cart/$',get_cart),
 	(r'^remove_cart/$',remove_from_cart),
 	(r'^sign_up/$',sign_up),
+	(r'^instacart/$',instacart),
 	
 )

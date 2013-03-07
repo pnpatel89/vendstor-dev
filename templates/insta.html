@@ -1,0 +1,118 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+    <meta charset="utf-8">  
+    <title>Example of Fluid Layout with Twitter Bootstrap version 2.0 from w3resource.com</title>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="Example of Fluid Layout with Twitter Bootstrap version 2.0 from w3resource.com">  
+    <meta name="author" content="">  
+  
+    <!-- Le styles -->  
+	<link href="/site_media/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+     <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+     <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
+  
+    <!-- Le fav and touch icons -->  
+    <link rel="shortcut icon" href="twitter-bootstrap-v2/docs/examples/images/favicon.ico">  
+    <link rel="apple-touch-icon" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon.png">  
+    <link rel="apple-touch-icon" sizes="72x72" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-72x72.png">  
+    <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png">  
+  </head>  
+
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+       <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Storstok</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Vendor View</li>
+              <li class="active"><a href="#">My Items</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li class="nav-header">Buyer View</li>
+              <li><a href="#">Search Vendors</a></li>
+              <li><a href="#">View Cart</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+        <div class="container-fluid">
+        {% for set in list %}
+        <div class="row-fluid">
+		 <ul class="thumbnails">
+		  {% for item in set %}
+		 	<li class="span4">
+		 		<div class="thumbnail">
+		 		 <img src="/site_media/pics/{{item.name}}.png" alt="" width="75%" height="75%">
+		 		 <div class="caption">
+		 		 <p>{{item.name}}           ${{item.price}}</p>
+		 		 </div>
+		 		</div>
+		 	 </li>
+		 	{% endfor %}
+		 </ul>
+        </div>
+         {% endfor %} 
+         </div> <!--/inner container/-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+		<footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    {% block content %}{% endblock %}
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

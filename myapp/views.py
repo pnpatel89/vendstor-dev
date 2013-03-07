@@ -8,6 +8,10 @@ from re import *
 from cart import Cart
 import json
 
+#partition for instacart copy
+def chunks(l, n):
+    return [l[i:i+n] for i in range(0, len(l), n)]
+    
 def sign_up(request):
 	if request.method == 'POST':
 		name = request.POST.get('full_name')
@@ -62,6 +66,16 @@ def landing_page(request):
 		#return HttpResponseRedirect('/landing/')
 	#elif request.user.username == "":
 		#return HttpResponseRedirect('/landing/')
+		
+#Replication of instacart page
+# Create your views here, fix for corner case when number of things is 1
+def instacart(request):
+	list = Item.objects.all()
+	big_list = chunks(list,3)
+	variables = RequestContext(request,{
+		'list':big_list
+	})
+	return render_to_response('insta.html', variables)
 		
 def main_page(request):
 	template = get_template('buyvi.html')
