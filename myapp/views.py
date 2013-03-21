@@ -75,7 +75,7 @@ def instacart(request):
 	variables = RequestContext(request,{
 		'list':big_list
 	})
-	return render_to_response('insta.html', variables)
+	return render_to_response('insta2.html', variables)
 		
 def main_page(request):
 	template = get_template('buyvi.html')
