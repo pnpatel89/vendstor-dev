@@ -91,6 +91,86 @@
 	width:70%;
 	box-shadow: 5px 5px 2.5px #888888;
 }
+
+/*Test of instacart setup */
+
+.navbar .navbar-inner {
+background: #FF8C00;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+}
+.navbar.primary-navbar {
+	height: 52px;
+	background-color: #FF8C00;
+}
+
+.navbar.secondary-navbar {
+top: 52px;
+z-index: 1010;
+}
+
+.navbar {
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+margin-bottom: 0;
+z-index: 1020;
+}
+
+.navbar.primary-navbar .navbar-inner {
+min-height: 50px;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
+.navbar.secondary-navbar .navbar-inner {
+background-color: #1E90FF;
+border-top: 0;
+min-height: 30px;
+border-bottom-color: #9bbe7f;
+}
+
+section {
+padding-top: 30px;
+}
+
+.navbar .nav {
+position: relative;
+left: 0;
+display: block;
+float: left;
+margin: 0 10px 0 0;
+}
+
+.scrollable {  
+    height: 25em !important;
+    overflow: scroll;
+}
+.navbar .nav>li {
+float: left;
+}
+
+li {
+line-height: 20px;
+}
+.navbar.secondary-navbar .nav>li>a {
+padding: 5px 15px 5px;
+text-shadow: none;
+color: #FFFFFF;
+}
+.navbar.primary-navbar .navbar-inner .navbar-search {
+margin-top: 10px;
+}
+.navbar-search {
+position: relative;
+float: left;
+margin-top: 5px;
+margin-bottom: 0;
+}
 </style>
      <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
@@ -103,7 +183,34 @@
   </head>  
 
 <body>
-
+	<div class="navbar primary-navbar">
+		<div class="navbar-inner">
+		<div class="navbar-search">
+		<div class="input-prepend">
+		<span class="add-on">
+		<i class="icon-search"></i>
+		</span>
+		<input type="text" placeholder="Search Vendstor">
+		</div>
+		</div>
+		</div>
+	</div>
+	<div class="navbar secondary-navbar">
+		<div class="navbar-inner">
+		<ul class="nav" style="margin-right:0;">
+		<li><a><b>Acme Corp.</b></a></li>
+		</ul>
+		<ul class="nav" style="font-size: 12px">
+		<li><a>Candy</a></li>
+		<li><a>Juice</a></li>
+		<li><a>Soda</a></li>
+		<li><a>Stationary</a></li>
+		<li><a>Paper Goods</a></li>
+		<li><a>Tobacco</a></li>
+		</ul>
+		</div>
+	</div>
+<!--
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
        <div class="container-fluid" >
@@ -126,10 +233,11 @@
         </div>
       </div>
     </div>
-
+-->  <section>          
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
+        <div class="row-fluid scrollable">
         <table class="table table-condensed">
         <thead>
         <i class="icon-shopping-cart" style="padding-right:10%"></i><b>Shopping Cart</b>
@@ -150,12 +258,26 @@
         </tr>
         </tbody>
         </table>
-        <button class="btn btn-success" style="width:100%;">Check Out</button>
+        </div>
+        <div class="row-fluid">
+        <hr/>
+        <div class="container-fluid">
+        <span><b>Acme Corp.</b></span><span style="padding-left:20%"><b>Total:<span id="total"></span></b></span>
+        </div>
+        <hr />
+        <div class="row-fluid">
+        <button class="btn btn-warning" style="width:100%;">Check Out</button>
+        </div>
+        </div>
         </div><!--/span-->
         <div class="span9">
         <div class="container-fluid">
+        <!---
         <div class="row-fluid">
+        <span style="font-size:1.3em;padding-bottom:2em"><b>Candy</b></span>
+        <hr>
         </div>
+        -->
         {% for set in list %}
         <div class="row-fluid">
 		 <ul class="thumbnails">
@@ -182,10 +304,11 @@
 
       <hr>
 		<footer>
-        <p>&copy; Company 2012</p>
+        <p class="pull-right">&copy; Vendstor 2013</p>
       </footer>
 
     </div><!--/.fluid-container-->
+    </section>
     {% block content %}{% endblock %}
     <!-- End custome jquery functions -->
     <!-- Le javascript
@@ -238,7 +361,7 @@
     $('.add').live('click', function () {
         row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
         $('table.table').append(row);
-        $(this).replaceWith('<span id="qty" style="background-color:silver"><button class="btn btn-small caret-up" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;background-color:silver;font-size:18px" id="' + $(this).attr("id") + '">1</span><button class="btn btn-small caret-down" id="down"><i class="icon-caret-down"></i></button></span>');
+        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;padding-top:3px;padding-bottom:5px;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
         $(".caret-down").unbind();
         $(".caret-up").unbind();
         $(".caret-down").click(function () {

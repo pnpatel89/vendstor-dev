@@ -82,6 +82,12 @@ def main_page(request):
 	variables = Context({'user': request.user})
 	output = template.render(variables)
 	return HttpResponse(output)
+
+def dummy(request):
+	template = get_template('scroll.html')
+	variables = Context({'user': request.user})
+	output = template.render(variables)
+	return HttpResponse(output)
 	
 def vend_view(request):
 	uprof = UserProfile.objects.get(user=request.user)
