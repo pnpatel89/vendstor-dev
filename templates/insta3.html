@@ -171,13 +171,32 @@ float: left;
 margin-top: 5px;
 margin-bottom: 0;
 }
-ul.nav li.dropdown:hover ul.dropdown-menu{
-    display: block;    
+.navbar .logo {
+position: absolute;
+display: inline-block;
+overflow: hidden;
+height: 36px;
+text-indent: 1000px;
+margin-left: -82px;
+line-height: 36px;
+/* left: 50%;
+margin-left: -82px;
+text-indent: 1000px;
+overflow: hidden;
+width: 165px; 
+display: inline-block;
+height: 36px;
+line-height: 36px;
+overflow: hidden; */
+}
+.navbar .nav {
+position: relative;
+left: 0;
+display: block;
+float: left;
+margin: 0 10px 0 0;
 }
 
-a.menu:after, .dropdown-toggle:after {
-  content: none;
-}
 </style>
      <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
@@ -205,10 +224,10 @@ a.menu:after, .dropdown-toggle:after {
 	<div class="navbar secondary-navbar">
 		<div class="navbar-inner">
 		<ul class="nav" style="margin-right:0;">
-		<li class="dropdown" id="places">
-		<a href="#places" class="dropdown-toggle" data-toggle="dropdown">Acme Corp.</a>
-		<ul class="dropdown-menu">
-		<li>
+		<li class="dropdown">
+		<a href="#" data-toggle="dropdown"><b>Acme Corp.</b></a>
+		<ul class="dropdown-menu" style="display:none;">
+		<li class="dropdown">
 		<a href=#Tesco>Tesco</a>
 		</li>
 		</ul>
@@ -380,7 +399,7 @@ a.menu:after, .dropdown-toggle:after {
     $('.add').live('click', function () {
         row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
         $('table.table').append(row);
-        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;padding-top:3px;padding-bottom:5px;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
+        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:5%;padding-right:5%;padding-top:1%;padding-bottom:2%;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
         $(".caret-down").unbind();
         $(".caret-up").unbind();
         $(".caret-down").click(function () {

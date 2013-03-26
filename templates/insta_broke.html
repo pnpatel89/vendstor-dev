@@ -178,6 +178,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 a.menu:after, .dropdown-toggle:after {
   content: none;
 }
+
+
 </style>
      <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
@@ -349,7 +351,8 @@ a.menu:after, .dropdown-toggle:after {
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
     $(document).ready(function(){ 
-    	
+    	$('.dropdown-toggle').dropdown();
+    	$('.btn-warning').click(alert("hello"));
     	$(".remove").live('click', function () {
         id = $(this).parent().text();
         id = id.replace(/\s+/g, '');
@@ -378,9 +381,9 @@ a.menu:after, .dropdown-toggle:after {
         $("#" + newid).text(currqty);
     });
     $('.add').live('click', function () {
-        row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
+    	row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
         $('table.table').append(row);
-        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;padding-top:3px;padding-bottom:5px;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
+        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:5%;padding-right:5%;padding-top:1%;padding-bottom:2%;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
         $(".caret-down").unbind();
         $(".caret-up").unbind();
         $(".caret-down").click(function () {
