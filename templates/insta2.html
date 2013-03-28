@@ -202,6 +202,11 @@ left: 0;
 width: 165px;
 height: 35px;
 }
+
+img.no-resize {
+  max-height: 40px;
+  max-width: 50px;
+}
 </style>
      <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
@@ -238,6 +243,12 @@ height: 35px;
 		<li>
 		<a href=#Tesco>Tesco</a>
 		</li>
+		<li>
+		<a href=#Costco>Costco</a>
+		</li>
+		<li>
+		<a href=#Shoprite>Shoprite</a>
+		</li>
 		</ul>
 		</li>
 		</ul>
@@ -246,11 +257,22 @@ height: 35px;
 		<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Candy</a>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
 		<li role="presentation"><a role=menuitem">Wonka</a></li>
+		<li role="presentation"><a role=menuitem">Hershey</a></li>
+		<li role="presentation"><a role=menuitem">Cadbury</a></li>
+		<li role="presentation"><a role=menuitem">Mars</a></li>
 		</ul>
 		</li>
-		<li><a>Juice</a></li>
-		<li><a>Soda</a></li>
-		<li><a>Stationary</a></li>
+		<li class="dropdown">
+		<a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Juice</a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		<li role="presentation"><a role=menuitem">Snapple</a></li>
+		<li role="presentation"><a role=menuitem">Dole</a></li>
+		<li role="presentation"><a role=menuitem">Tropicana</a></li>
+		<li role="presentation"><a role=menuitem">Odwalla</a></li>
+		</ul>
+		</li>
+		<li><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Soda</a></li>
+		<li><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Stationary</a></li>
 		<li><a>Paper Goods</a></li>
 		<li><a>Tobacco</a></li>
 		</ul>
@@ -293,13 +315,13 @@ height: 35px;
         <tr>
         <td>
         <span class=" counter">
-    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
+    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
 </td>
         </tr>
         <tr>
         <td>
         <span class=" counter">
-    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
+    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
 </td>
         </tr>
         </tbody>
