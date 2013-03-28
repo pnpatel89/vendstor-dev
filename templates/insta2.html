@@ -178,6 +178,30 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 a.menu:after, .dropdown-toggle:after {
   content: none;
 }
+
+.navbar.primary-navbar .logo {
+margin-top: 0px;
+}
+
+.navbar .logo {
+position: absolute;
+left: 50%;
+margin-left: -82px;
+text-indent: 1000px;
+width: 165px;
+display: inline-block;
+height: 36px;
+line-height: 36px;
+overflow: hidden;
+}
+
+.navbar .logo img {
+position: absolute;
+top: 0;
+left: 0;
+width: 165px;
+height: 35px;
+}
 </style>
      <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
@@ -200,6 +224,9 @@ a.menu:after, .dropdown-toggle:after {
 		<input type="text" placeholder="Search Vendstor">
 		</div>
 		</div>
+		<a href="#" class="logo">
+		<img src="/site_media/pics/vens.png" height="36" width="165">
+		</a>
 		</div>
 	</div>
 	<div class="navbar secondary-navbar">
@@ -281,7 +308,7 @@ a.menu:after, .dropdown-toggle:after {
         <div class="row-fluid">
         <hr/>
         <div class="container-fluid">
-        <span><b>Acme Corp.</b></span><span style="padding-left:20%"><b>Total:<span id="total"></span></b></span>
+        <span><b>Acme Corp.</b></span><span style="padding-left:20%"><b>Total: $<span id="total">0.00</span></b></span>
         </div>
         <hr />
         <div class="row-fluid">
@@ -305,7 +332,7 @@ a.menu:after, .dropdown-toggle:after {
         <div class="hover-group thumbnail" style="background-color:LightGray">
             <div class="img-container">
                 <img src="/site_media/pics/{{item.name}}.png" alt="" width="100%" >
-                 <div class="hover-boggle"><p style="font-size:1.2em;color:white;padding-left:1em;"><span style="background-color:gray"><b>${{item.price|floatformat:2}}</b></span></p></div>
+                 <div class="hover-boggle"><p style="font-size:1.2em;color:white;padding-left:1em;"><span class="price" style="background-color:gray"><b>${{item.price|floatformat:2}}</b></span></p></div>
                 <div class="hover-toggle btn-group">
                     <button class="btn add" id="{{item.name}}"><i class="icon-shopping-cart"></i>Add</button>
                 </div>
@@ -353,20 +380,29 @@ a.menu:after, .dropdown-toggle:after {
     	$(".remove").live('click', function () {
         id = $(this).parent().text();
         id = id.replace(/\s+/g, '');
+        var num = parseInt($(this).parent().prev().children(':nth-child(2)').text());
         $(this).parent().parent().remove();
-        $("#" + id).parent().replaceWith('<div><button class="btn add" id="' + id + '"><i class="icon-shopping-cart"></i>Add</button></div>');
+        price = $("#" + id).parent().parent().prev().children(':first-child').children(':first-child').text();
+        $("#" + id).parent().replaceWith('<button class="btn add" id="' + id + '"><i class="icon-shopping-cart"></i>Add</button>'); 
+        price = price.substring(1);
+        var new_total = parseFloat($('#total').text()) - (parseFloat(num)*parseFloat(price));
+        $('#total').text(new_total.toFixed(2));
     });
     $(".down").live('click', function () {
         var currqty = parseInt($(this).prev().text(), 10);
         var id = $(this).prev().attr("id");
         var newid = id.slice(0, -1);
         --currqty;
-        if (currqty <= 1) {
+        if (currqty < 1) {
             $(this).prev().text(1);
             $("#" + newid).text(1);
         } else {
             $(this).prev().text(currqty);
             $("#" + newid).text(currqty);
+            price = $("#" + newid).parent().parent().prev().children(':first-child').children(':first-child').text(); 
+        	price = price.substring(1);
+        	var new_total = parseFloat($('#total').text()) - parseFloat(price);
+        	$('#total').text(new_total.toFixed(2));
         }
     });
     $(".up").live('click', function () {
@@ -376,10 +412,18 @@ a.menu:after, .dropdown-toggle:after {
         ++currqty;
         $(this).next().text(currqty);
         $("#" + newid).text(currqty);
+        price = $("#" + newid).parent().parent().prev().children(':first-child').children(':first-child').text(); 
+        price = price.substring(1);
+        var new_total = parseFloat($('#total').text()) + parseFloat(price);
+        $('#total').text((new_total.toFixed(2)).toString());
     });
     $('.add').live('click', function () {
         row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
         $('table.table').append(row);
+        price = $(this).parent().prev().children(':first-child').children(':first-child').text(); 
+        price = price.substring(1);
+        var new_total = parseFloat($('#total').text()) + parseFloat(price);
+        $('#total').text(new_total.toFixed(2));
         $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;padding-top:3px;padding-bottom:5px;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
         $(".caret-down").unbind();
         $(".caret-up").unbind();
@@ -388,9 +432,13 @@ a.menu:after, .dropdown-toggle:after {
             var id = $(this).prev().attr("id") + "1";
             var currqty = parseInt($(this).prev().text(), 10);
             --currqty;
+            price = $(this).parent().parent().prev().children(':first-child').children(':first-child').text(); 
+        	price = price.substring(1);
+        	var new_total = parseFloat($('#total').text()) - parseFloat(price);
+        	$('#total').text(new_total.toFixed(2));
             if (currqty === 0) {
                 $("#" + id).parent().parent().remove();
-                $(this).parent().replaceWith('<div><button class="btn add" id="' + oldid + '"><i class="icon-shopping-cart"></i>Add</button></div>');
+                $(this).parent().replaceWith('<button class="btn add" id="' + oldid + '"><i class="icon-shopping-cart"></i>Add</button>');
             } else {
                 $(this).prev().text(currqty);
                 $("#" + id).text(currqty);
@@ -402,6 +450,10 @@ a.menu:after, .dropdown-toggle:after {
             ++currqty;
             $(this).next().text(currqty);
             $("#" + id).text(currqty);
+            price = $(this).parent().parent().prev().children(':first-child').children(':first-child').text(); 
+        	price = price.substring(1);
+        	var new_total = parseFloat($('#total').text()) + parseFloat(price);
+        	$('#total').text((new_total.toFixed(2)).toString());
         });
     });
     	
