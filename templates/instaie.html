@@ -204,11 +204,42 @@ height: 35px;
 }
 
 img.no-resize {
-  max-height: 40px;
-  max-width: 50px;
+  max-height: 30px;
+  max-width: 40px;
+}
+
+.caret-up {
+ max-height: 40px;
+  max-width: 20px;
+}
+
+.caret-down{
+ max-height: 40px;
+ max-width: 10px;
+}
+
+.wrapper {
+position: relative;
+width: 1200px;
+min-height: 100%;
+padding: 54px 10px 15px;
+margin: 0 auto;
+}
+
+.navbar .nav.pull-right {
+float: right;
+margin-right: 0;
+}
+
+.nav-pills > .active > a{
+background-color: #0088cc;
 }
 </style>
-     <link href="/site_media/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/site_media/bootstrap/css/introjs.min.css" rel="stylesheet">
+<!--[if lte IE 8]>
+  <link href="/site_media/bootstrap/css/introjs-ie.css" rel="stylesheet">
+<!-- <![endif] ->
+
      <link href="twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css" rel="stylesheet">  
   
     <!-- Le fav and touch icons -->  
@@ -219,6 +250,151 @@ img.no-resize {
   </head>  
 
 <body>
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Welcome to Vendstor!</h3>
+  </div>
+  <div class="modal-body">
+  <p><h4>Order</h4> Vendstor is an online marketplace makes order management easy for wholesale distributors that vend a range of products from food and produce to paper goods and equipment. With our easy-to-use interface, clients can order products online and receive automated invoices.</p>
+  <hr>
+  <p><h4>Transact</h4> Bank-to-bank transactions can be done online at little cost. Vendstor also facilitates vendor receivables and merchant credit. </p>
+  <hr>
+  <p><h4>Cloud-hosted Inventory Catalogs </h4> Vendstor's modern, cloud-hosted solution reduces the cost of local database needs. Distributors can easily update product catalogs and choose who sees them. Uploading catalogs is hassle free...we'll do it!</p>
+  <hr>
+  <p><h4>Analyze</h4>Vendstor's proprietary data engine, based on state-of-the-art statistical algorithms, lets sellers analyze key trends.</p>
+  <hr>
+  <p><h4>Join</h4>We're presently in development, but do test out our features and if you like what you see <a href="/landing">Register</a> or <a href="mailto:info@vendstor.com">email us</a>.</p>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+
+<div class="modal hide fade" id="aboutModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>About</h3>
+  </div>
+  <div class="modal-body">
+  <div>
+  <ul>
+  <li><a href="#f1">What is Vendstor?</a></li>
+  <li><a href="#f2">Why should I use Vendstor?</a></li>
+  <li><a href="#f3">What if I am a distributor and already have online ordering?</a></li>
+  <li><a href="#f4">What will Vendstor cost me if I'm selling?</a></li>
+  <li><a href="#f5">What will Vendstor cost me if I'm buying?</a></li>
+  <li><a href="#f6">What if my business operates through credit or receivables?</a></li>
+  <li><a href="#f7">Who can see a distributor's products and prices?</a></li>
+  <li><a href="#f8">How can a distributor upload its inventory?</a></li>
+  <li><a href="#f9">What if my business has multiple branches?</a></li>
+  <li><a href="#f10">How does Vendstor's data engine work?</a></li>
+  <li><a href="#f11">How can I sign up?</a></li>
+  </ul>
+  </div>
+  <p><h4 id="f1">What is Vendstor?</h4>Vendstor is an online marketplace for wholesale distributors and their clients. Vendstor allows distributors to catalog their
+  inventory online and make it available for purchase to approved clients.</p>
+  <hr>
+  <p><h4 id="f2"><b>Why should I use Vendstor?</b></h4><b>For distributors:</b></p>
+  <p>Vendstor's easy to use interface makes it simple for clients to view and search for products.
+  Additionally, Vendstor enables direct payment with a flat fee, which means no longer having to collect physical payments via
+  check or cash. Our cloud-based infrastructure saves costs by letting distributors outsource site maintenance to Vendstor, allowing
+  distributors to focus more on core business and less on technical issues. Distributors can connect to new clients through Vendstor's
+  search platform that lets buyers find who's selling what items.<p>
+  <p><b>For buyers:</b></p>
+  <p></p> Vendstor lets buyers easily search for products and create order lists. This lets businesses buy what they want, when they want 
+  without worrying about errors. Businesses can also manage separate branches and make separate orders for each branch. Lastly Vendstor offers
+  businesses the convenience of paying directly online.
+  <hr>
+  <p><h4 id="f3">What if I am a distributor and already have online ordering?</h4></p>
+  Vendstor goes beyond simply facilitating online orders. Payment is made simple through our support of bank-to-bank
+  transactions online. Our data engine lets distributors analyze
+  sales trends across individual products, product categories, and customers. The user-friendly interface lets
+  distributors add new products quickly. 
+  <hr>
+  <p><h4 id="f4">What will Vendstor cost me if I'm selling?</h4></p>
+  Listing products on Vendstor will cost a monthly fee that will vary reasonably with database needs.
+  Additionally a flat chart of $1.00 for bank-to-bank order processing.
+  <hr>
+  <p><h4 id="f5">What will Vendstor cost me if I'm buying?</h4></p>
+  There are no costs to buyers!
+  <hr>
+  <p><h4 id="f6">What if my business operates through credit or receivables?</h4></p>
+  Credit and receivables are no problem at all with Vendstor as distributors have the ability to defer payment processing.
+  <hr>
+  <p><h4 id="f7">Who can see a distributor's products and prices?</h4></p>
+  Distributors can restrict price information and even product listing to clients.
+  <hr>
+  <p><h4 id="f8">How can a distributor upload its inventory?</h4></p>
+  There are several ways to upload inventory. The easiest way is to send us a file, or even a physical list,
+  and we'll upload it for you! You information will remain confidential.Vendstor also enables you to manually enter
+  your product listing.
+  <hr>
+  <p><h4 id="f9">What if my business has multiple branches?</h4></p>
+  Not a problem! Businesses can easily manage purchases for various branches.
+  <hr>
+  <p><h4 id="f10">How does Vendstor's data engine work?</h4>Vendstor's data engine access aggregate and individual
+  product sales information to identify product trends. Distributors can identify in real-time, both best-selling
+  and worst-selling products in addition to customer purchase habits.</p>
+  <hr>
+  <p><h4 id="f11">How can I sign up?</h4>Register <a href="/register">here</a> or contact us at info@vendstor.com</p>
+  <hr>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+
+<div id="registerModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <h2 id="message">Sign Up:</h2>
+  </div>
+  <div class="modal-body">
+    <div id="registerModalerror" style="display: none;"></div>
+    <form action="/sign_up/" method="post" class="form-horizontal well well-small form-search" id="registerModalform">
+    {% csrf_token %}
+        <div class="control-group">
+            <label class="control-label" id="full_name">Name:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-info-sign"></i></span>
+                    <input type="text" name="full_name" placeholder="Enter your name." class="search-query" id="UserName">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" id="biz_name">Name of Business:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-home"></i></span>
+                    <input type="text" name="biz_name" placeholder="Enter your name." class="search-query" id="BizName">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" id="email">Email:</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input type="text" name="email" placeholder="Enter your email." class="search-query" id="UserEmail" >
+                </div>
+            </div>
+        </div>
+         <div class="control-group">
+            <label class="control-label" ><span style="padding-right:10px">I want to sell.</span></label>
+            <input type="checkbox" name="vendor" value="True" class="search-query" id="chkSelect1">
+        </div>
+        <div class="control-group">
+            <label class="control-label" ><span style="padding-right:10px">I want to buy.</span></label>
+            <input type="checkbox" name="buyer" value="True" class="search-query" id="chkSelect2">
+        </div>
+        <div class="form-actions" style="margin-bottom: 0px; padding-bottom: 0px;">
+            <input type="submit" class="btn btn-primary search-query" name="register" value="Register!" id="registerModalsubmit">
+        </div>
+    </form>
+</div>
+</div>
+
 	<div class="navbar primary-navbar">
 		<div class="navbar-inner">
 		<div class="navbar-search">
@@ -226,9 +402,20 @@ img.no-resize {
 		<span class="add-on">
 		<i class="icon-search"></i>
 		</span>
-		<input type="text" placeholder="Search Vendstor">
+		<input type="text" placeholder="Search Vendstor" >
 		</div>
 		</div>
+		<ul class="nav nav-pills pull-right">
+		<li class="active">
+    	<a href="#">Home</a>
+ 		 </li>
+		<li>
+		<a role="button" data-toggle="modal" href="#aboutModal"><span style="color:black"><b>About</b></span></a>
+		</li>
+		<li>
+		<a role="button" data-toggle="modal" href="#registerModal"><span style="color:black"></b>Register</b></span></a>
+		</li>
+		</ul>
 		<a href="#" class="logo">
 		<img src="/site_media/pics/vens.png" height="36" width="165">
 		</a>
@@ -301,11 +488,11 @@ img.no-resize {
         </div>
       </div>
     </div>
--->  <section>          
-    <div class="container-fluid">
+-->  <div id="page-outer">          
+    <div class="wrapper">
       <div class="row-fluid">
         <div class="span3">
-        <div class="row-fluid scrollable">
+        <div class="row-fluid scrollable" >
         <table class="table table-condensed">
         <thead>
         <i class="icon-shopping-cart" style="padding-right:10%"></i><b>Shopping Cart</b>
@@ -315,13 +502,13 @@ img.no-resize {
         <tr>
         <td>
         <span class=" counter">
-    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
+    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" style="padding-left:1em"></span>
 </td>
         </tr>
         <tr>
         <td>
         <span class=" counter">
-    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" width="20%" height="20%" style="padding-left:1em"></span>
+    <button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item">Jefferson<img class="no-resize" src="/site_media/pics/cadbury.png" alt="" style="padding-left:1em"></span>
 </td>
         </tr>
         </tbody>
@@ -376,7 +563,7 @@ img.no-resize {
       </footer>
 
     </div><!--/.fluid-container-->
-    </section>
+    </div>
     {% block content %}{% endblock %}
     <!-- End custome jquery functions -->
     <!-- Le javascript
@@ -396,9 +583,11 @@ img.no-resize {
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/site_media/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/site_media/js/intro.min.js"></script>
     <script>
     $(document).ready(function(){ 
-    	
+    	$('#myModal').modal('show');
     	$(".remove").live('click', function () {
         id = $(this).parent().text();
         id = id.replace(/\s+/g, '');
@@ -440,13 +629,13 @@ img.no-resize {
         $('#total').text((new_total.toFixed(2)).toString());
     });
     $('.add').live('click', function () {
-        row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" width="20%" height="20%" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
+        row = '<tr><td><span class=" counter"><button class="btn btn-link up" style="text-decoration: none;color:black"><i class="icon-caret-up upcar"></i></button><span class="count" id="' + $(this).attr("id") + '1' + '">1</span><button class="btn btn-link down" style="text-decoration: none;color:black"><i class="icon-caret-down downcar"></i></button></span><span class="item"><b>' + $(this).attr("id") + '</b><img class="no-resize" src="/site_media/pics/' + $(this).attr("id") + '.png" alt="" style="padding-left:1em"><button class="btn btn-link remove" style="text-decoration: none;color:red"><i class="icon-remove-sign"></i></button></span></td></tr>';
         $('table.table').append(row);
         price = $(this).parent().prev().children(':first-child').children(':first-child').text(); 
         price = price.substring(1);
         var new_total = parseFloat($('#total').text()) + parseFloat(price);
         $('#total').text(new_total.toFixed(2));
-        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:8px;padding-right:8px;padding-top:3px;padding-bottom:5px;background-color:Gainsboro;font-size:16px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
+        $(this).replaceWith('<span id="qty" style="background-color:DarkGray;padding-top:9%;padding-bottom:4%;"><button class="btn btn-link caret-up" style="text-decoration: none;color:black" id="up"><i class="icon-caret-up"></i></button><span style="padding-left:1%;padding-right:0.1%;padding-top:1%;padding-bottom:1%;background-color:Gainsboro;font-size:14px" id="'+$(this).attr("id")+'">1</span><button class="btn btn-link caret-down" style="text-decoration: none;color:black" id="down"><i class="icon-caret-down"></i></button></span>');
         $(".caret-down").unbind();
         $(".caret-up").unbind();
         $(".caret-down").click(function () {
@@ -481,6 +670,5 @@ img.no-resize {
     	
     	});
     </script>
-
   </body>
 </html>

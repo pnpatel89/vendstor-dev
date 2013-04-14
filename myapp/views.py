@@ -76,6 +76,14 @@ def instacart(request):
 		'list':big_list
 	})
 	return render_to_response('insta2.html', variables)
+	
+def iecart(request):
+	list = Item.objects.all()
+	big_list = chunks(list,3)
+	variables = RequestContext(request,{
+		'list':big_list
+	})
+	return render_to_response('instaie.html', variables)
 		
 def main_page(request):
 	template = get_template('buyvi.html')
